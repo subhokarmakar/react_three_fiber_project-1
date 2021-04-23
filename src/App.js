@@ -24,7 +24,7 @@ const SpinningMesh = ({ position, color, speed, args }) => {
   const [expand, setExpand] = useState(false);
   // React spring expand animation
   const props = useSpring({
-    scale: expand ? [1.4, 1.4, 1.4] : [1, 1, 1],
+    scale: expand ? [1.4, 1.4, 1.4] : [1, 1, 1]
   });
   return (
     <a.mesh
@@ -32,12 +32,13 @@ const SpinningMesh = ({ position, color, speed, args }) => {
       ref={mesh}
       onClick={() => setExpand(!expand)}
       scale={props.scale}
-      castShadow>
-      <boxBufferGeometry attach='geometry' args={args} />
+      castShadow
+    >
+      <boxBufferGeometry attach="geometry" args={args} />
       <MeshWobbleMaterial
         color={color}
         speed={speed}
-        attach='material'
+        attach="material"
         factor={0.6}
       />
     </a.mesh>
@@ -62,7 +63,8 @@ const App = () => {
       <Canvas
         colorManagement
         shadowMap
-        camera={{ position: [-5, 2, 10], fov: 60 }}>
+        camera={{ position: [-5, 2, 10], fov: 60 }}
+      >
         {/* This light makes things look pretty */}
         <ambientLight intensity={0.3} />
         {/* Our main source of light, also casting our shadow */}
@@ -86,18 +88,19 @@ const App = () => {
           <mesh
             rotation={[-Math.PI / 2, 0, 0]}
             position={[0, -3, 0]}
-            receiveShadow>
-            <planeBufferGeometry attach='geometry' args={[100, 100]} />
-            <shadowMaterial attach='material' opacity={0.3} />
+            receiveShadow
+          >
+            <planeBufferGeometry attach="geometry" args={[100, 100]} />
+            <shadowMaterial attach="material" opacity={0.3} />
           </mesh>
           <SpinningMesh
             position={[0, 1, 0]}
-            color='lightblue'
+            color="purple"
             args={[3, 2, 1]}
             speed={2}
           />
-          <SpinningMesh position={[-2, 1, -5]} color='pink' speed={6} />
-          <SpinningMesh position={[5, 1, -2]} color='pink' speed={6} />
+          <SpinningMesh position={[-2, 1, -5]} color="orangered" speed={6} />
+          <SpinningMesh position={[5, 1, -2]} color="orangered" speed={6} />
         </group>
         {/* Allows us to move the canvas around for different prespectives */}
         <OrbitControls />

@@ -3,11 +3,11 @@ import React from "react";
 const Header = () => {
   return (
     <header>
-      <div className='logo'>
-        <span>REACT THREE FIBER</span>
+      <div className="logo">
+        <span>@mesubhokarma</span>
       </div>
-      <div className='episode'>
-        <span>EP. 1</span>
+      <div className="episode">
+        <span>made with react-three-fiber</span>
       </div>
     </header>
   );
